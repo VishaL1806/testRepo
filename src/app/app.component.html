@@ -1,0 +1,18 @@
+<div class="trip-form">
+  <input [(ngModel)]="newTrip.from" placeholder="Start City" />
+  <input [(ngModel)]="newTrip.to" placeholder="End City" />
+  <button (click)="addTrip()">Add Trip</button>
+</div>
+
+<div class="trip-container">
+  <div *ngFor="let trip of renderedTrips; let i = index"
+       class="trip"
+       [ngClass]="{'level-1': trip.level === 1, 'level-2': trip.level === 2}">
+    
+    <div class="trip-line">
+      <span class="dot"></span>
+      <span class="trip-label">{{ trip.fromCode }} - {{ trip.toCode }}</span>
+      <span *ngIf="trip.isArrow" class="arrow">→</span>
+    </div>
+  </div>
+</div>
